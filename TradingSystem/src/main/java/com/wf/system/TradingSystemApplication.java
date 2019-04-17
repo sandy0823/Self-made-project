@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan({"com.wf.system.brand.dao","com.wf.system.category.dao",
-	"com.wf.system.category.product","com.wf.system.mapper"})
+	"com.wf.system.category.product.dao","com.wf.system.mapper"})
 public class TradingSystemApplication {
 
 	public static void main(String[] args) {
