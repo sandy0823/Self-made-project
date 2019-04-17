@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>尚硅谷电商首页</title>
+ <style>
+    .top{
+      float: inline-start;
+      width: 100%;
+    }
+    .content{
+       float: inline-end;
+       width: 100%;
+    }
+    .left{
+        float:left;
+     }
+     .right{
+        width:85%;
+        float:right;
+     }
+ </style>
+</head>
+<body>
+  <div th:insert="top::html" class="top"></div>
+  <div class="content">
+     <div th:insert="categoryMenu::html"  class="left"></div>
+     <div th:insert="right::html"  class="right"></div>
+  </div>
+</body>
+</html>
