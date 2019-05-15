@@ -12,8 +12,6 @@ public class StreamJava8Demo {
 	   list.stream()
                .map(Person::getName)
                .collect(Collectors.toList()).forEach(System.out::println);
-	   
-	   IntStream.rang
    }
    
    public static class Person{
