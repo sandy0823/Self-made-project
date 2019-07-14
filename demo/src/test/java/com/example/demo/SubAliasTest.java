@@ -5,7 +5,7 @@ import org.springframework.core.annotation.AnnotationUtils;
 
 import com.example.demo.alias.SubMyAnnotation;
 
-@SubMyAnnotation(subLocation = "location", value = "dd")
+@SubMyAnnotation(subLocation = "location")
 public class SubAliasTest extends BaseTest {
 	
 	@Test

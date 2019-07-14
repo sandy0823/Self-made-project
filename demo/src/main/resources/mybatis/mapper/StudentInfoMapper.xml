@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.StudentInfoDao">
+  <resultMap id="BaseResultMap" type="com.example.demo.dao.entity.StudentInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sex" jdbcType="BIGINT" property="sex" />
+    <result column="age" jdbcType="BIGINT" property="age" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sudent_id" jdbcType="BIGINT" property="sudentId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sex, age, name, sudent_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+    from student_info
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from student_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.dao.entity.StudentInfo">
+    insert into student_info (id, sex, age, name, 
+      sudent_id)
+    values (#{id,jdbcType=BIGINT}, #{sex,jdbcType=BIGINT}, #{age,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{sudentId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.dao.entity.StudentInfo">
+    insert into student_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sudentId != null">
+        sudent_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=BIGINT},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sudentId != null">
+        #{sudentId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.dao.entity.StudentInfo">
+    update student_info
+    <set>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=BIGINT},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sudentId != null">
+        sudent_id = #{sudentId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.dao.entity.StudentInfo">
+    update student_info
+    set sex = #{sex,jdbcType=BIGINT},
+      age = #{age,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      sudent_id = #{sudentId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
